@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+# Immediate: Persistent Volume created dynamically in az before the creation of pod.
+# WaitForFirstConsumer: Persistent Volume created only after the creation of pod.
