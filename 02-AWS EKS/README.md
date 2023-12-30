@@ -26,7 +26,14 @@ Command to attach iam oidc provider to the cluster:
 eksctl utils associate-iam-oidc-provider --region us-east-1 --cluster eksdemo --approve
 
 Command to create nodegroups:
+
+# Public Subnet
+
 eksctl create nodegroup --cluster=eksdemo --region=us-east-1 --name=eksdemo-public-ng --node-type=t3.medium --nodes=2 --nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=personalKey --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access
+
+# Private Subnet
+
+eksctl create nodegroup --cluster=eksdemo --region=us-east-1 --name=eksdemo-ng-private1 --node-type=t3.medium --nodes-min=2 --nodes-max=4 --node-volume-size=20 --ssh-access --ssh-public-key=personalKey --managed --asg-access --external-dns-access --full-ecr-access --appmesh-access --alb-ingress-access --node-private-networking
 
 Commad to delete the cluster:
 eksctl delete cluster eksdemo
