@@ -53,7 +53,7 @@ eksctl create iamserviceaccount --cluster=eksdemo --namespace=kube-system --name
 
 ## Replace Cluster Name, Region Code, VPC ID, Image Repo Account ID and Region Code
 
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=eksdemo --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller --set region=us-east-1 --set vpcId=vpc-0c53b36a47316fcb9 --set image.repository=602401143452.dkr.ecr.us-east-1.amazonaws.com/amazon/aws-load-balancer-controller
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=eksdemo --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller --set region=us-east-1 --set vpcId=vpc-011696c28c4a3b108 --set image.repository=602401143452.dkr.ecr.us-east-1.amazonaws.com/amazon/aws-load-balancer-controller
 
 # Verify that the controller is installed.
 
@@ -69,3 +69,14 @@ Need for Ingress Class ?
 
 - Many ingress controllers like AWS EKS ALB IC, NgInx IC, AKS AG IC. To identify which ingress controller our Ingress resource/service should be associated to.
 - Kubernetes Object -> kind: IngressClass (tied to our controller)
+
+Ingress Manifests:
+
+Ingress Annotations: LoadBalancer settings
+
+Nodeport spans accross all the nodes in the cluster
+
+Path types:
+ImplementationSpecific: Controller implementing specific
+Exact: Matches the url path exactly and case sensitive
+Prefix: Matches based on URL path prefix split by /. Matching is case sensitive and done on path element basis.
