@@ -14,7 +14,8 @@ Worker Nodes/Node Groups:
 
 Command to create EKS cluster without any node group:
 eksctl create cluster --name=eksdemo --region=us-east-1 --zones=us-east-1a,us-east-1b --without-nodegroup
-Creates a cloudformation under the hood
+
+##Creates a cloudformation under the hood
 
 Command to get the nodes in the cluster:
 kubectl get nodes
